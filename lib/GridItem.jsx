@@ -79,6 +79,7 @@ type Props = {
   usePercentages?: boolean,
   transformScale: number,
   droppingPosition?: DroppingPosition,
+  enableUserSelectHack: boolean,
 
   className: string,
   style?: Object,
@@ -217,7 +218,8 @@ export default class GridItem extends React.Component<Props, State> {
     minW: 1,
     maxH: Infinity,
     maxW: Infinity,
-    transformScale: 1
+    transformScale: 1,
+    enableUserSelectHack: false
   };
 
   state: State = {
@@ -354,7 +356,7 @@ export default class GridItem extends React.Component<Props, State> {
   ): ReactElement<any> {
     return (
       <DraggableCore
-        enableUserSelectHack={false}
+        enableUserSelectHack={this.props.enableUserSelectHack}
         disabled={!isDraggable}
         onStart={this.onDragStart}
         onDrag={this.onDrag}

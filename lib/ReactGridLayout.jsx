@@ -102,6 +102,7 @@ export default class ReactGridLayout extends React.Component<Props, State> {
     verticalCompact: true,
     compactType: "vertical",
     preventCollision: false,
+    enableUserSelectHack: false,
     droppingItem: {
       i: "__dropping-elem__",
       h: 1,
@@ -393,6 +394,7 @@ export default class ReactGridLayout extends React.Component<Props, State> {
     h,
     { e, node }
   ) => {
+    B;
     const { layout } = this.state;
     const l = getLayoutItem(layout, i);
     if (!l) return;
@@ -555,7 +557,8 @@ export default class ReactGridLayout extends React.Component<Props, State> {
       rowHeight,
       maxRows,
       useCSSTransforms,
-      transformScale
+      transformScale,
+      enableUserSelectHack
     } = this.props;
 
     // {...this.state.activeDrag} is pretty slow, actually
@@ -580,6 +583,7 @@ export default class ReactGridLayout extends React.Component<Props, State> {
         isBounded={false}
         useCSSTransforms={useCSSTransforms}
         transformScale={transformScale}
+        enableUserSelectHack={enableUserSelectHack}
       >
         <div />
       </GridItem>
