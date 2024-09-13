@@ -211,7 +211,6 @@ class ReactGridLayout extends React.Component /*:: <Props, State>*/{
         e,
         node
       } = _ref4;
-      B;
       const {
         layout
       } = this.state;
