@@ -394,7 +394,6 @@ export default class ReactGridLayout extends React.Component<Props, State> {
     h,
     { e, node }
   ) => {
-    B;
     const { layout } = this.state;
     const l = getLayoutItem(layout, i);
     if (!l) return;
