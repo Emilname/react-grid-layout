@@ -354,6 +354,7 @@ export default class GridItem extends React.Component<Props, State> {
   ): ReactElement<any> {
     return (
       <DraggableCore
+        enableUserSelectHack={false}
         disabled={!isDraggable}
         onStart={this.onDragStart}
         onDrag={this.onDrag}
