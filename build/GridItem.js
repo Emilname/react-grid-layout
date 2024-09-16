@@ -5,6 +5,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 var _react = _interopRequireDefault(require("react"));
+var _reactDom = require("react-dom");
 var _propTypes = _interopRequireDefault(require("prop-types"));
 var _reactDraggable = require("react-draggable");
 var _reactResizable = require("react-resizable");
@@ -148,8 +149,10 @@ class GridItem extends _react.default.Component /*:: <Props, State>*/{
       const pTop = parentRect.top / transformScale;
       newPosition.left = cLeft - pLeft + offsetParent.scrollLeft;
       newPosition.top = cTop - pTop + offsetParent.scrollTop;
-      this.setState({
-        dragging: newPosition
+      (0, _reactDom.flushSync)(() => {
+        this.setState({
+          dragging: newPosition
+        });
       });
 
       // Call callback with this data
@@ -214,8 +217,10 @@ class GridItem extends _react.default.Component /*:: <Props, State>*/{
         top,
         left
       };
-      this.setState({
-        dragging: newPosition
+      (0, _reactDom.flushSync)(() => {
+        this.setState({
+          dragging: newPosition
+        });
       });
 
       // Call callback with this data
@@ -258,8 +263,10 @@ class GridItem extends _react.default.Component /*:: <Props, State>*/{
         top,
         left
       };
-      this.setState({
-        dragging: null
+      (0, _reactDom.flushSync)(() => {
+        this.setState({
+          dragging: null
+        });
       });
       const {
         x,
@@ -485,8 +492,10 @@ class GridItem extends _react.default.Component /*:: <Props, State>*/{
     let updatedSize = size;
     if (node) {
       updatedSize = (0, _utils.resizeItemInDirection)(handle, position, size, containerWidth);
-      this.setState({
-        resizing: handlerName === "onResizeStop" ? null : updatedSize
+      (0, _reactDom.flushSync)(() => {
+        this.setState({
+          resizing: handlerName === "onResizeStop" ? null : updatedSize
+        });
       });
     }
 
